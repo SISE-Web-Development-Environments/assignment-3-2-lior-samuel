@@ -2,12 +2,18 @@ require("dotenv").config();
 //#region express configures
 var express = require("express");
 var path = require("path");
+const cors = require("cors");
 var logger = require("morgan");
 const session = require("client-sessions");
 const DButils = require("../modules/DButils");
 
 var app = express();
 app.use(logger("dev")); //logger
+const corsConfig = {
+    origin: true,
+    credentials: true
+};
+app.use(cors(corsConfig));
 app.use(express.json()); // parse application/json
 app.use(
   session({
