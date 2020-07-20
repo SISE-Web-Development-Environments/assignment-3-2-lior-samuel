@@ -57,6 +57,7 @@ router.post("/Register", async (req, res, next) => {
     }
  */
 router.post("/Login", async (req, res, next) => {
+    // Test
     try {
         // check that username exists
         const users = await DButils.execQuery("SELECT username FROM users");
